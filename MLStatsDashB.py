@@ -21,9 +21,17 @@ if __name__ == "__main__":
     df.drop('選手名',axis = 1,inplace=True)
     
     st.title('Mリーグスタッツ')
-    st.write(('データ取得日：2022/04/30'))
+    st.write(('更新日：'+datetime.date.today().strftime('%Y/%m/%d')))
     st.write('Mリーグ選手成績データ可視化サイトです。')
-    st.markdown('公式サイトはこちら:<a href = "https://m-league.jp/">Mリーグサイト</a>',unsafe_allow_html=True)
+    st.write('現在は２０２１-２０２２レギュラーシーズン成績を可視化しています。')
+    st.markdown('<a href = "https://m-league.jp/">公式サイトはこちら</a>',unsafe_allow_html=True)
+    st.markdown('<a href="https://px.a8.net/svt/ejp?a8mat=3N26CN+5YCTU+4EKC+5YJRM" rel="nofollow">MリーグはABEMAで見れます！</a><img border="0" width="1" height="1" src="https://www18.a8.net/0.gif?a8mat=3N26CN+5YCTU+4EKC+5YJRM" alt="">',unsafe_allow_html=True)
+    
+    st.header('タイトル選手')
+    col1, col2, col3 = st.columns(3)
+    col1.metric('ベストスコア: '+df['ベストスコア'].sort_values(ascending=False).keys()[0], df['ベストスコア'].sort_values(ascending=False)[0].astype(int))
+    col2.metric('ラス回避率: '+df['ラス回避率'].sort_values(ascending=False).keys()[0], df['ラス回避率'].sort_values(ascending=False)[0])
+    col3.metric('ポイント: '+df['ポイント'].sort_values(ascending=False).keys()[0], df['ポイント'].sort_values(ascending=False)[0].astype(int))
     
     st.header('個人ポイントランキング')
     st.dataframe(df.sort_values('ポイント',ascending=False))
@@ -44,7 +52,7 @@ if __name__ == "__main__":
     ax.grid()
     st.pyplot(fig)
     
-    st.header('アガリ率と放銃率')
+    st.header('アガリ率vs放銃率')
     fig,ax = plt.subplots(figsize=(8.0,8.0))
     plt.grid()
     mean_df = df[['チーム','ベストスコア','トップ率', '連対率','平均打点','放銃平均打点',
@@ -54,11 +62,19 @@ if __name__ == "__main__":
         plt.text(x, y, name)
     st.pyplot(fig)
 
-    st.header('平均打点と放銃平均打点')
+    st.header('平均打点vs放銃平均打点')
     fig,ax = plt.subplots(figsize=(8,8))
     plt.grid()
     sns.scatterplot(data=mean_df,x = '放銃平均打点',y='平均打点',hue='チーム')
     for x, y, name in zip(mean_df['放銃平均打点'], mean_df['平均打点'], mean_df.index):
+        plt.text(x, y, name)
+    st.pyplot(fig)
+    
+    st.header('リーチ率vs副露率')
+    fig,ax = plt.subplots(figsize=(8,8))
+    plt.grid()
+    sns.scatterplot(data=mean_df,x = '副露率',y='リーチ率',hue='チーム')
+    for x, y, name in zip(mean_df['副露率'], mean_df['リーチ率'], mean_df.index):
         plt.text(x, y, name)
     st.pyplot(fig)
     
