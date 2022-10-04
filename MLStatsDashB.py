@@ -12,7 +12,7 @@ import seaborn as sns
 import streamlit as st
 # %matplotlib inline
 
-fname = 'data/MLeague_stats2022-03-30.csv'
+fname = 'data/MLeague_stats2022-10-04.csv'
 
 if __name__ == "__main__":
     df = pd.read_csv(fname)
@@ -20,10 +20,10 @@ if __name__ == "__main__":
     df.index = df['選手名']
     df.drop('選手名',axis = 1,inplace=True)
     
-    st.title('Mリーグスタッツ')
-    st.write(('更新日：'+datetime.date.today().strftime('%Y/%m/%d')))
+    st.title('Mリーグ2022-2023スタッツサイト')
+    st.write(('更新日：2022/10/04'))
     st.write('Mリーグ選手成績データ可視化サイトです。')
-    st.write('現在は２０２１-２０２２レギュラーシーズン成績を可視化しています。')
+    st.write('現在は2022-2023レギュラーシーズン成績を可視化しています。')
     st.markdown('<a href = "https://m-league.jp/">公式サイトはこちら</a>',unsafe_allow_html=True)
     st.markdown('<a href="https://px.a8.net/svt/ejp?a8mat=3N26CN+5YCTU+4EKC+5YJRM" rel="nofollow">MリーグはABEMAで見れます！</a><img border="0" width="1" height="1" src="https://www18.a8.net/0.gif?a8mat=3N26CN+5YCTU+4EKC+5YJRM" alt="">',unsafe_allow_html=True)
     
