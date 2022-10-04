@@ -12,7 +12,7 @@ import seaborn as sns
 import streamlit as st
 # %matplotlib inline
 
-fname = 'data/MLeague_stats2022-10-04.csv'
+fname = 'data/MLeague_stats.csv'
 
 if __name__ == "__main__":
     df = pd.read_csv(fname)
