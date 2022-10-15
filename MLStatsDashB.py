@@ -21,7 +21,7 @@ if __name__ == "__main__":
     df.drop('選手名',axis = 1,inplace=True)
     
     st.title('Mリーグ2022-2023スタッツサイト')
-    st.write(('更新日：2022/10/04'))
+    st.write(('更新日：2022/10/15'))
     st.write('Mリーグ選手成績データ可視化サイトです。')
     st.write('現在は2022-2023レギュラーシーズン成績を可視化しています。')
     st.markdown('<a href = "https://m-league.jp/">公式サイトはこちら</a>',unsafe_allow_html=True)
