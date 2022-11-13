@@ -74,6 +74,14 @@ if __name__ == "__main__":
             plt.text(x, y, name)
         st.pyplot(fig)
         
+        st.header('試合数vs対局数')
+        fig,ax = plt.subplots(figsize=(8,8))
+        plt.grid()
+        sns.scatterplot(data=df,x = '試合数',y='総局数',hue='チーム')
+        for x, y, name in zip(df['試合数'], df['総局数'], df.index):
+            plt.text(x, y, name)
+        st.pyplot(fig)
+        
     with tab2:
         st.header('チームポイントランキング')
         mdf = df[['試合数','チーム', '総局数', 'ポイント', '1位', '2位', '3位', '4位']].groupby('チーム').sum()
@@ -108,6 +116,14 @@ if __name__ == "__main__":
         plt.grid()
         sns.scatterplot(data=mean_df,x = '副露率',y='リーチ率',hue='チーム')
         for x, y, name in zip(mean_df['副露率'], mean_df['リーチ率'], mean_df.index):
+            plt.text(x, y, name)
+        st.pyplot(fig)
+        
+        st.header('平均トップ率vs平均ラス回避率')
+        fig,ax = plt.subplots(figsize=(8,8))
+        plt.grid()
+        sns.scatterplot(data=mean_df,x = 'トップ率',y='ラス回避率',hue='チーム')
+        for x, y, name in zip(mean_df['トップ率'], mean_df['ラス回避率'], mean_df.index):
             plt.text(x, y, name)
         st.pyplot(fig)
 
