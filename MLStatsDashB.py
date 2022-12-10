@@ -90,6 +90,8 @@ def PlayerInfo(player):
     if player == '伊達 朱里紗':
         st.text('主演作品')
         st.markdown('<a href = "https://amzn.to/3P0HFkm">ヲタクに恋は難しい (完全生産限定版)(全4巻セット/発売日順次お届け)[Blu-ray]</a>',unsafe_allow_html=True)
+        st.text('今シーズン役満動画')
+        st.video('https://youtu.be/PDl0C8JMHHg')
         
     if player == '白鳥 翔':
         st.text('書籍')
@@ -159,7 +161,6 @@ def PlayerInfo(player):
         st.markdown('<a href = "https://www.youtube.com/channel/UCPoSb5QLf0ZcQ0C-rJYK2IQ?app=desktop">じゃがちゃんねる【仲林圭】</a>',unsafe_allow_html=True)
     
 def rader_c(labels,values):
-
         # 多角形を閉じるためにデータの最後に最初の値を追加する。
         radar_values = np.concatenate([values, [values[0]]])
         # プロットする角度を生成する。
@@ -218,16 +219,48 @@ if __name__ == "__main__":
     st.markdown('<a href = "https://m-league.jp/">公式サイトはこちら</a>',unsafe_allow_html=True)
     st.markdown('<a href="https://px.a8.net/svt/ejp?a8mat=3N26CN+5YCTU+4EKC+5YJRM" rel="nofollow">MリーグはABEMAで見れます！</a><img border="0" width="1" height="1" src="https://www18.a8.net/0.gif?a8mat=3N26CN+5YCTU+4EKC+5YJRM" alt="">',unsafe_allow_html=True)
     
-    tab1, tab2,tab3 = st.tabs(["個人成績", "チーム成績","選手プロフィール"])
+    st.text('公式書籍')
+    pub1,pub2,pub3,pub4,pub5 = st.columns(5)
+    with pub1:
+        st.components.v1.html('<a href="https://www.amazon.co.jp/M%E3%83%AA%E3%83%BC%E3%82%B02022-23%E5%85%AC%E5%BC%8F%E3%82%AC%E3%82%A4%E3%83%89%E3%83%96%E3%83%83%E3%82%AF-%E4%B8%80%E8%88%AC%E7%A4%BE%E5%9B%A3%E6%B3%95%E4%BA%BAM%E3%83%AA%E3%83%BC%E3%82%B0%E6%A9%9F%E6%A7%8B/dp/4041127912?__mk_ja_JP=%E3%82%AB%E3%82%BF%E3%82%AB%E3%83%8A&crid=7CPXZHU39HJS&keywords=M%E3%83%AA%E3%83%BC%E3%82%B0&qid=1670657954&sprefix=m%E3%83%AA%E3%83%BC%E3%82%B0%2Caps%2C185&sr=8-4&linkCode=li1&tag=takishun03-22&linkId=d3d09a5a62c0e471e5a24479b63ddfeb&language=ja_JP&ref_=as_li_ss_il" target="_blank"><img border="0" src="//ws-fe.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=4041127912&Format=_SL110_&ID=AsinImage&MarketPlace=JP&ServiceVersion=20070822&WS=1&tag=takishun03-22&language=ja_JP" ></a><img src="https://ir-jp.amazon-adsystem.com/e/ir?t=takishun03-22&language=ja_JP&l=li1&o=9&a=4041127912" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />')
+    with pub2:
+        st.components.v1.html("""
+        <a href="https://www.amazon.co.jp/%E9%BA%BB%E9%9B%80%E3%82%BF%E3%82%A4%E3%83%97%E5%88%A5%E3%80%8CM%E3%83%AA%E3%83%BC%E3%82%B02022%EF%BD%9E2023%E3%80%8D%E8%A6%B3%E6%88%A6%E3%83%9E%E3%83%8B%E3%83%A5%E3%82%A2%E3%83%AB-%E5%9C%9F%E7%94%B0%E6%B5%A9%E7%BF%94/dp/4910825045?__mk_ja_JP=%E3%82%AB%E3%82%BF%E3%82%AB%E3%83%8A&crid=7CPXZHU39HJS&keywords=M%E3%83%AA%E3%83%BC%E3%82%B0&qid=1670657954&sprefix=m%E3%83%AA%E3%83%BC%E3%82%B0%2Caps%2C185&sr=8-8&linkCode=li1&tag=takishun03-22&linkId=84af97bfeff81872aba853b12aabc72d&language=ja_JP&ref_=as_li_ss_il" target="_blank"><img border="0" src="//ws-fe.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=4910825045&Format=_SL110_&ID=AsinImage&MarketPlace=JP&ServiceVersion=20070822&WS=1&tag=takishun03-22&language=ja_JP" ></a><img src="https://ir-jp.amazon-adsystem.com/e/ir?t=takishun03-22&language=ja_JP&l=li1&o=9&a=4910825045" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />
+        """)
+    with pub3:
+        st.components.v1.html("""
+        <a href="https://www.amazon.co.jp/M%E3%83%AA%E3%83%BC%E3%82%B02021%E5%85%AC%E5%BC%8F%E3%82%AC%E3%82%A4%E3%83%89%E3%83%96%E3%83%83%E3%82%AF-%E4%B8%80%E8%88%AC%E7%A4%BE%E5%9B%A3%E6%B3%95%E4%BA%BAM%E3%83%AA%E3%83%BC%E3%82%B0%E6%A9%9F%E6%A7%8B/dp/4041118468?__mk_ja_JP=%E3%82%AB%E3%82%BF%E3%82%AB%E3%83%8A&crid=7CPXZHU39HJS&keywords=M%E3%83%AA%E3%83%BC%E3%82%B0&qid=1670660055&sprefix=m%E3%83%AA%E3%83%BC%E3%82%B0%2Caps%2C185&sr=8-1-spons&psc=1&spLa=ZW5jcnlwdGVkUXVhbGlmaWVyPUEyWDZUVEc4SjlCSUxRJmVuY3J5cHRlZElkPUEwMTA5ODY3V0pYSDNINU42N0QmZW5jcnlwdGVkQWRJZD1BM1I3V0w5WjJSQVpLMSZ3aWRnZXROYW1lPXNwX2F0ZiZhY3Rpb249Y2xpY2tSZWRpcmVjdCZkb05vdExvZ0NsaWNrPXRydWU%3D&linkCode=li1&tag=takishun03-22&linkId=e539228b42c00890af4361049809f850&language=ja_JP&ref_=as_li_ss_il" target="_blank"><img border="0" src="//ws-fe.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=4041118468&Format=_SL110_&ID=AsinImage&MarketPlace=JP&ServiceVersion=20070822&WS=1&tag=takishun03-22&language=ja_JP" ></a><img src="https://ir-jp.amazon-adsystem.com/e/ir?t=takishun03-22&language=ja_JP&l=li1&o=9&a=4041118468" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />
+        """)
+    with pub4:
+        st.components.v1.html("""
+        <a href="https://www.amazon.co.jp/M%E3%83%AA%E3%83%BC%E3%82%B02020%E5%85%AC%E5%BC%8F%E3%82%AC%E3%82%A4%E3%83%89%E3%83%96%E3%83%83%E3%82%AF-%E4%B8%80%E8%88%AC%E7%A4%BE%E5%9B%A3%E6%B3%95%E4%BA%BAM%E3%83%AA%E3%83%BC%E3%82%B0%E6%A9%9F%E6%A7%8B/dp/4046049413?__mk_ja_JP=%E3%82%AB%E3%82%BF%E3%82%AB%E3%83%8A&crid=7CPXZHU39HJS&keywords=M%E3%83%AA%E3%83%BC%E3%82%B0&qid=1670660055&sprefix=m%E3%83%AA%E3%83%BC%E3%82%B0%2Caps%2C185&sr=8-3-spons&psc=1&spLa=ZW5jcnlwdGVkUXVhbGlmaWVyPUEyWDZUVEc4SjlCSUxRJmVuY3J5cHRlZElkPUEwMTA5ODY3V0pYSDNINU42N0QmZW5jcnlwdGVkQWRJZD1BMU5HSVVYWFgwWVFSQiZ3aWRnZXROYW1lPXNwX2F0ZiZhY3Rpb249Y2xpY2tSZWRpcmVjdCZkb05vdExvZ0NsaWNrPXRydWU%3D&linkCode=li1&tag=takishun03-22&linkId=74173febadccf5aa997291d93a54e0ef&language=ja_JP&ref_=as_li_ss_il" target="_blank"><img border="0" src="//ws-fe.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=4046049413&Format=_SL110_&ID=AsinImage&MarketPlace=JP&ServiceVersion=20070822&WS=1&tag=takishun03-22&language=ja_JP" ></a><img src="https://ir-jp.amazon-adsystem.com/e/ir?t=takishun03-22&language=ja_JP&l=li1&o=9&a=4046049413" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />
+        """)
+    with pub5:
+        st.components.v1.html("""
+        <a href="https://www.amazon.co.jp/%E9%80%B2%E5%8C%96%E3%81%97%E3%81%9F%E3%80%8C%E8%B6%85%E6%94%BB%E6%92%83%E3%80%8D%E3%82%B9%E3%82%BF%E3%82%A4%E3%83%AB-%E9%AD%94%E7%8E%8B%E3%81%AE%E9%BA%BB%E9%9B%80-%E4%BD%90%E3%80%85%E6%9C%A8-%E5%AF%BF%E4%BA%BA/dp/4046060174?__mk_ja_JP=%E3%82%AB%E3%82%BF%E3%82%AB%E3%83%8A&crid=2BLOUU47MHDHK&keywords=M%E3%83%AA%E3%83%BC%E3%82%B0&qid=1670660208&sprefix=m%E3%83%AA%E3%83%BC%E3%82%B0%2Caps%2C186&sr=8-21&linkCode=li1&tag=takishun03-22&linkId=1afcf5eaec7c94426f1bf536e01c5078&language=ja_JP&ref_=as_li_ss_il" target="_blank"><img border="0" src="//ws-fe.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=4046060174&Format=_SL110_&ID=AsinImage&MarketPlace=JP&ServiceVersion=20070822&WS=1&tag=takishun03-22&language=ja_JP" ></a><img src="https://ir-jp.amazon-adsystem.com/e/ir?t=takishun03-22&language=ja_JP&l=li1&o=9&a=4046060174" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />
+        """)
     
+    tab1, tab2,tab3 = st.tabs(["個人成績", "チーム成績","選手プロフィール"])
     with tab1:
         st.header('タイトル選手')
         col1, col2, col3 = st.columns(3)
-        col1.metric('ベストスコア: '+df['ベストスコア'].sort_values(ascending=False).keys()[0], df['ベストスコア'].sort_values(ascending=False)[0].astype(int))
-        col2.metric('ラス回避率: '+df['ラス回避率'].sort_values(ascending=False).keys()[0], df['ラス回避率'].sort_values(ascending=False)[0])
-        col3.metric('ポイント: '+df['ポイント'].sort_values(ascending=False).keys()[0], df['ポイント'].sort_values(ascending=False)[0].astype(int))
 
-        st.header('個人ポイントランキング')
+        col1.subheader('ポイント')
+        col1.metric('1st '+df['ポイント'].sort_values(ascending=False).keys()[0], df['ポイント'].sort_values(ascending=False)[0].astype(int))
+        col1.metric('2nd '+df['ポイント'].sort_values(ascending=False).keys()[1], df['ポイント'].sort_values(ascending=False)[1].astype(int))
+        col1.metric('3rd '+df['ポイント'].sort_values(ascending=False).keys()[2], df['ポイント'].sort_values(ascending=False)[2].astype(int))
+
+        col2.subheader('ベストスコア')
+        col2.metric('1st '+df['ベストスコア'].sort_values(ascending=False).keys()[0], df['ベストスコア'].sort_values(ascending=False)[0].astype(int))
+        col2.metric('2nd '+df['ベストスコア'].sort_values(ascending=False).keys()[1], df['ベストスコア'].sort_values(ascending=False)[1].astype(int))
+        col2.metric('3rd '+df['ベストスコア'].sort_values(ascending=False).keys()[2], df['ベストスコア'].sort_values(ascending=False)[2].astype(int))
+
+        col3.subheader('ラス回避率')        
+        col3.metric('1st '+df['ラス回避率'].sort_values(ascending=False).keys()[0], df['ラス回避率'].sort_values(ascending=False)[0])
+        col3.metric('2nd '+df['ラス回避率'].sort_values(ascending=False).keys()[1], df['ラス回避率'].sort_values(ascending=False)[1])
+        col3.metric('3rd '+df['ラス回避率'].sort_values(ascending=False).keys()[2], df['ラス回避率'].sort_values(ascending=False)[2])
+
+        st.header('個人成績テーブル')
         st.dataframe(df.sort_values('ポイント',ascending=False))
 
         arr = df[['ポイント']].sort_values('ポイント',ascending=True)
@@ -315,7 +348,6 @@ if __name__ == "__main__":
         st.pyplot(fig)
         
     with tab3:
-        
         'Mリーガの個人成績、タイトル、書籍等の情報をまとめています。'
         '下から選手を選択するとMリーグ個人データが見れます。'
         
@@ -344,13 +376,18 @@ if __name__ == "__main__":
         
         with col5:
             fig,ax = plt.subplots(figsize=(8.0, 8.0))
+            plt.tick_params(labelsize=20)
             rader_c(data_r.index.to_list(),np.array(data_r[option].to_list()))
             ax.grid()
   
             fig,ax = plt.subplots(figsize=(8.0, 8.0))
+            plt.tick_params(labelsize=20)
             ax.barh(data_lc.index.to_list(),data_lc[option].to_list(),align = 'center',color='lightgreen')
             ax.grid()        
             st.pyplot(fig)
 
         PlayerInfo(option)
+    
+    #footer ![サンマの塩焼き](/img/sanma.gif) 
+#     st.markdown('<a href = "https://twitter.com/m_league_?s=20&t=r3wNo5RenW2t_BLjSJKj_w"><img src="tw.png" alt="Mリーグ公式Twitter"></a>')
 
