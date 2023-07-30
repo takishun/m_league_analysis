@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[2]:
+# In[1]:
 
 
 import pandas as pd
@@ -38,15 +38,6 @@ sns.heatmap(a.corr(),annot=True)
 plt.savefig('corr.png')
 
 
-# In[93]:
-
-
-X = df[['ポイント','総局数', '連対率', 'ベストスコア', '平均打点', '副露率', 'リーチ率', 'アガリ率', '放銃率', '放銃平均打点']]
-X.reset_index(drop=True,inplace=True)
-# X.drop('index',inplace=True,axis=1)
-X.to_csv('corr_dat.csv',index=False)
-
-
 # In[94]:
 
 
@@ -59,35 +50,35 @@ X.reset_index
 
 
 
-# In[3]:
+# In[2]:
 
 
 df['打点期待値'] = df['アガリ率']*df['平均打点']
 print(df[['打点期待値']].sort_values('打点期待値',ascending=False))
 
 
-# In[4]:
+# In[3]:
 
 
 df[['打点期待値']].sort_values('打点期待値',ascending=True).plot(kind='barh',figsize=(10,5))
 plt.savefig('打点期待値.png')
 
 
-# In[5]:
+# In[4]:
 
 
 df['放銃点期待値'] = df['放銃率']*df['放銃平均打点']
 print(df[['放銃点期待値']].sort_values('放銃点期待値',ascending=False))
 
 
-# In[98]:
+# In[5]:
 
 
 df[['放銃点期待値']].sort_values('放銃点期待値',ascending=True).plot(kind='barh',figsize=(10,5),color='pink')
 plt.savefig('放銃点期待値.png')
 
 
-# In[8]:
+# In[6]:
 
 
 fig,ax = plt.subplots(figsize=(8,8))
@@ -99,13 +90,13 @@ plt.xlabel('放銃点期待値')
 plt.ylabel('打点期待値')
 
 
-# In[100]:
+# In[7]:
 
 
 df[['総局数','チーム']].groupby('チーム').sum().plot(kind='barh',figsize=(8,5))
 
 
-# In[9]:
+# In[8]:
 
 
 sns.lmplot(x='放銃点期待値',y='打点期待値',data = df,fit_reg = False,hue='チーム')
@@ -115,45 +106,13 @@ plt.grid()
 plt.savefig('期待値.png')
 
 
-# In[11]:
+# In[9]:
 
 
 df.columns
 
 
-# In[12]:
-
-
-X = df[['試合数', '総局数', 'ポイント', '平着', '1位', '2位', '3位', '4位', 'トップ率', '連対率',
-       'ラス回避率', 'ベストスコア', '平均打点', '副露率', 'リーチ率', 'アガリ率', '放銃率', '放銃平均打点']]
-
-
-# In[13]:
-
-
-df.reset_index(inplace=True)
-
-
-# In[14]:
-
-
-index_df = df[['index','チーム']]
-
-
 # In[15]:
-
-
-df.drop('index',inplace=True,axis=1)
-df.drop('チーム',inplace=True,axis=1)
-
-
-# In[16]:
-
-
-X =df
-
-
-# In[17]:
 
 
 import matplotlib.pyplot as plt
@@ -162,6 +121,18 @@ import pickle
 
 #t-SNEで次元削減
 from sklearn.manifold import TSNE
+
+df.reset_index(inplace=True)
+index_df = df[['index','チーム']]
+
+df.drop('index',inplace=True,axis=1)
+df.drop('チーム',inplace=True,axis=1)
+
+X =df
+
+X = df[['試合数', '総局数', 'ポイント', '平着', '1位', '2位', '3位', '4位', 'トップ率', '連対率',
+       'ラス回避率', 'ベストスコア', '平均打点', '副露率', 'リーチ率', 'アガリ率', '放銃率', '放銃平均打点']]
+
 tsne = TSNE(n_components=2, random_state = 0, perplexity = 30, n_iter = 1000)
 X_embedded = tsne.fit_transform(X)
 
