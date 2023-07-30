@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[11]:
+# In[1]:
 
 
 #1 import library
@@ -16,19 +16,19 @@ import random
 get_ipython().run_line_magic('matplotlib', 'inline')
 
 
-# In[12]:
+# In[2]:
 
 
 data = pd.read_csv('MLeague_players.csv')
 
 
-# In[13]:
+# In[3]:
 
 
 data['総局数/試合数'] = data['総局数'] / data['試合数']
 
 
-# In[14]:
+# In[ ]:
 
 
 data['総局数/試合数'].hist()
@@ -40,19 +40,19 @@ data['総局数/試合数'].hist()
 data = data.sort_values('総局数/試合数',ascending=False)
 
 
-# In[16]:
+# In[4]:
 
 
 data.columns
 
 
-# In[17]:
+# In[5]:
 
 
 data.head()
 
 
-# In[18]:
+# In[6]:
 
 
 data.index = data['選手名']
@@ -273,6 +273,12 @@ for i in group.index:
     group_r[['1位','2位','3位','4位']].plot(kind='bar')
     plt.grid()
     plt.savefig(i+'.png')
+
+
+# In[14]:
+
+
+data['村上 淳'].index
 
 
 # In[ ]:
